@@ -2,7 +2,7 @@ import GeneralInfo from './GeneralInfo';
 import EducationInfo from './EducationInfo';
 import WorkExperience from './WorkExperience';
 
-function Editor(props) {
+function Editor({data, handleChange, handleAddEducation, handleAddWorkExperience}) {
 
     return (
         <div className="editor">
@@ -10,21 +10,22 @@ function Editor(props) {
                 <h1 className="editorTitle">cv generator</h1>
             </header>
             <GeneralInfo
-                data = {props.data}
-                handleChange = {props.handleChange}
+                data = {data}
+                handleChange = {handleChange}
             />
 
             <EducationInfo
-                data = {props.data}
-                handleChange = {props.handleChange}
+                data = {data}
+                handleChange = {handleChange}
+                handleAddEducation={handleAddEducation}
             />
 
             <WorkExperience
-                data = {props.data}
-                handleChange = {props.handleChange}
+                data = {data}
+                handleAddWorkExperience={handleAddWorkExperience}
             />
         </div>
-    )
+    );
 }
 
 export default Editor;

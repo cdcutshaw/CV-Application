@@ -1,54 +1,77 @@
-function WorkExperience(props) {
-    const {data, handleChange} = props
+import { useState } from 'react';
 
-    return (
-        <form className="form workEcperience">
-            <h2>Work Experience:</h2>
-            <fieldset>
-                <label htmlFor="position">Title/Position:</label>
-                <input
-                    type="text" 
-                    name="position"
-                    id="position"
-                    onChange={handleChange}
-                    value={data.position}
-                    placeholder="General Manager"
-                />
+function WorkExperience({ handleAddWorkExperience }) {
+  const [tempWork, setTempWork] = useState({
+    position: '',
+    companyName: '',
+    workStartDate: '',
+    workEndDate: '',
+  });
 
-                <label htmlFor="companyName">Company Name:</label>
-                <input 
-                    type="text"
-                    name="companyName"
-                    id="companyName"
-                    onChange={handleChange}
-                    value={data.companyName}
-                />
+  const handleTempChange = (e) => {
+    const { name, value } = e.target;
+    setTempWork((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
-                <label htmlFor="workStartDate">Start Date:</label>
-                <input 
-                    type="date"
-                    name="workStartDate"
-                    id="workStartDate"
-                    onChange={handleChange}
-                    value={data.workStartDate}
-                />
-                
-                <label htmlFor="workEndtDate">End Date:</label>
-                <input 
-                    type="date"
-                    name="workEndtDate"
-                    id="workEndtDate"
-                    onChange={handleChange}
-                    value={data.workEndtDate}
-                />
+  const handleAdd = (e) => {
+    e.preventDefault();
+    handleAddWorkExperience(tempWork);
+    setTempWork({
+      position: '',
+      companyName: '',
+      workStartDate: '',
+      workEndDate: '',
+    });
+  };
 
-                <button>
-                    Add
-                </button>
-                
-            </fieldset>
-        </form>
-    )
+  return (
+    <form className="form workExperience">
+      <h2>Work Experience:</h2>
+      <fieldset>
+        <label htmlFor="position">Title/Position:</label>
+        <input
+          type="text"
+          name="position"
+          id="position"
+          onChange={handleTempChange}
+          value={tempWork.position}
+          placeholder="General Manager"
+        />
+
+        <label htmlFor="companyName">Company Name:</label>
+        <input
+          type="text"
+          name="companyName"
+          id="companyName"
+          onChange={handleTempChange}
+          value={tempWork.companyName}
+        />
+
+        <label htmlFor="workStartDate">Start Date:</label>
+        <input
+          type="date"
+          name="workStartDate"
+          id="workStartDate"
+          onChange={handleTempChange}
+          value={tempWork.workStartDate}
+        />
+
+        <label htmlFor="workEndDate">End Date:</label>
+        <input
+          type="date"
+          name="workEndDate"
+          id="workEndDate"
+          onChange={handleTempChange}
+          value={tempWork.workEndDate}
+        />
+
+        <button onClick={handleAdd}>Add</button>
+      </fieldset>
+    </form>
+  );
 }
 
 export default WorkExperience;

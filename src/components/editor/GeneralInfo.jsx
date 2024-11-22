@@ -1,9 +1,9 @@
-function GeneralInfo(props) {
-    const {data, handleChange} = props
+function GeneralInfo({data, handleChange}) {
+    
 
     return (
         <form className="form generalInfo">
-            <h2>general info</h2>
+            <h2>General Info</h2>
             <fieldset>
                 <label htmlFor="firstName">First Name:</label>
                 <input
@@ -13,9 +13,10 @@ function GeneralInfo(props) {
                     onChange={handleChange}
                     value={data.firstName}
                     placeholder="Jane"
+                    required
                 />
 
-                <label htmlFor="">Last Name:</label>
+                <label htmlFor="lastName">Last Name:</label>
                 <input 
                     type="text"
                     name="lastName"
@@ -23,6 +24,7 @@ function GeneralInfo(props) {
                     onChange={handleChange}
                     value={data.lastName}
                     placeholder="Doe"
+                    required
                 />
 
                 <label htmlFor="email">Email:</label>
@@ -33,6 +35,7 @@ function GeneralInfo(props) {
                     onChange={handleChange}
                     value={data.email}
                     placeholder="janedoe@example.com"
+                    required
                 />
                 
                 <label htmlFor="phone">Phone Number:</label>
@@ -43,6 +46,7 @@ function GeneralInfo(props) {
                     onChange={handleChange}
                     value={data.phone}
                     placeholder="555-555-5555"
+                    required
                 />
 
                 <label htmlFor="about">About Me:</label>
@@ -53,6 +57,7 @@ function GeneralInfo(props) {
                     rows="10"
                     onChange={handleChange}
                     value={data.about}
+                    required
                 ></textarea>
                 
                 

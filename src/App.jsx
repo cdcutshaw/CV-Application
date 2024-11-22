@@ -74,9 +74,16 @@ function App() {
     }));
   };
   
+  const [currentlyEditing, setCurrenlyEditing] = useState(null)
+  const startEditing = (id, type) => {
+    setCurrenlyEditing({id,type});
+  };
+  const stopEditing = () => {
+    setCurrenlyEditing(null);
+  };
 
   return (
-    <>
+    <div className='container'>
       
         <Editor
           data = {data} 
@@ -88,14 +95,16 @@ function App() {
       
         <Preview
           data = {data}
+          currentlyEditing={currentlyEditing}
           handleDeleteEducation={handleDeleteEducation}
           handleEditEducation={handleEditEducation}
-
           handleDeleteWork={handleDeleteWork}
           handleEditWork={handleEditWork}
+          startEditing={startEditing}
+          stopEditing={stopEditing}
         />
       
-    </>
+    </div>
   )
 }
 

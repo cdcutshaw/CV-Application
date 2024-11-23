@@ -46,62 +46,72 @@ function Preview({ data, handleDeleteEducation, handleEditEducation, handleDelet
     
     return (
         <div className="preview">
-            <h2>CV Preview</h2>
-        
-            <h3>General Information</h3>
-            <p><strong>Name:</strong> {data.firstName} {data.lastName}</p>
-            <p><strong>Email:</strong> {data.email}</p>
-            <p><strong>Phone:</strong> {data.phone}</p>
-            <p><strong>About:</strong> {data.about}</p>
-
-            <h3>Education</h3>    
-            {education.map((edu) => (
-            <div key={edu.id} className="education-item">
-                {editingEntry?.id === edu.id && editingType === 'education' ? (
-                    <EditForm
-                        entry={edu}
-                        fields={fields.education}
-                        onSave={handleSave}
-                        onCancel={handleCancel}
-                    />
-                ) : (
-                    <>
-                        <p>{edu.institution} - {edu.degree}</p>
-                        <p>{edu.edStartDate} to {edu.edEndDate}</p>
-                        <div className="actions">
-                            <button onClick={() => handleEditClick(edu, 'education')}>Edit</button>
-                            <button onClick={() => handleDeleteEducation(edu.id)}>Delete</button>
-                        </div>
-                    </>
-                )}
-            </div>
-            ))}
-
-            <h3>Work Experience</h3>    
-            {workExperience.map((work) => (
-                <div key={work.id} className="work-item">
-                    {editingEntry?.id === work.id && editingType === 'work' ? (
-                        <EditForm
-                            entry={work}
-                            fields={fields.work}
-                            onSave={handleSave}
-                            onCancel={handleCancel}
-                        />
-                ) : (
-                 <>
-                    <p>{work.position}</p>
-                    <p>{work.companyName}</p>
-                    <p>{work.workStartDate} to {work.workEndDate}</p>
-                    <div className="actions">
-                        <button onClick={() => handleEditClick(work, 'work')}>Edit</button>
-                        <button onClick={() => handleDeleteWork(work.id)}>Delete</button>
+            <div className="previewPage">
+                
+                <div className="prevHead">
+                    <div>
+                        <p className="prevName">{data.firstName} {data.lastName}</p>
+                        <p className="prevTitle">{data.professionalTitle}</p>
                     </div>
-                </>
-            )}
+                    <div>
+                        <p> {data.email}</p>
+                        <p> {data.phone}</p>
+                        <p> {data.location}</p>
+                    </div>
                 </div>
 
-            ))}
-      </div>
+                <div className="prevBody">
+                    <div>
+                        <h4>About Me</h4>
+                        <p>{data.about}</p>
+                    </div>
+                    <h4>Education</h4>
+                    {education.map((edu) => (
+                    <div key={edu.id} className="education-item">
+                        {editingEntry?.id === edu.id && editingType === 'education' ? (
+                            <EditForm
+                                entry={edu}
+                                fields={fields.education}
+                                onSave={handleSave}
+                                onCancel={handleCancel}
+                            />
+                        ) : (
+                            <>
+                                <p><strong>{edu.institution} - {edu.degree}</strong></p>
+                                <p>{edu.edStartDate} to {edu.edEndDate}</p>
+                                <div className="actions">
+                                    <button onClick={() => handleEditClick(edu, 'education')}>Edit</button>
+                                    <button onClick={() => handleDeleteEducation(edu.id)}>Delete</button>
+                                </div>
+                            </>
+                        )}
+                    </div>
+                    ))}
+                    <h4>Work Experience</h4>
+                    {workExperience.map((work) => (
+                        <div key={work.id} className="work-item">
+                            {editingEntry?.id === work.id && editingType === 'work' ? (
+                                <EditForm
+                                    entry={work}
+                                    fields={fields.work}
+                                    onSave={handleSave}
+                                    onCancel={handleCancel}
+                                />
+                        ) : (
+                         <>
+                            <p><strong>{work.position}</strong> - {work.companyName}</p>
+                            <p>{work.workStartDate} to {work.workEndDate}</p>
+                            <div className="actions">
+                                <button onClick={() => handleEditClick(work, 'work')}>Edit</button>
+                                <button onClick={() => handleDeleteWork(work.id)}>Delete</button>
+                            </div>
+                        </>
+                    )}
+                        </div>
+                    ))}
+                                </div>
+                          </div>
+                </div>
     );
   }
   

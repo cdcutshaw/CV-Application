@@ -9,10 +9,12 @@ function App() {
   document.title = 'cv generator';
 
   const [data, setData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
+    firstName: 'Jane ',
+    lastName: 'Doe',
+    professionalTitle: 'General Manager',
+    email: 'janedoe@example.com',
+    phone: '555-555-5555',
+    location: 'Anywhere, USA',
     about: '',
     education: [],
     workExperience: [],
@@ -83,27 +85,33 @@ function App() {
   };
 
   return (
-    <div className='container'>
+    <div>
+      <header>
+                <h1 className="editorTitle">cv generator</h1>
+      </header>
+      <main >
       
-        <Editor
-          data = {data} 
-          handleChange={handleChange}
-          handleAddEducation={handleAddEducation}
-          handleAddWorkExperience={handleAddWorkExperience}
-        />
-     
+          <Editor
+            data = {data}
+            handleChange={handleChange}
+            handleAddEducation={handleAddEducation}
+            handleAddWorkExperience={handleAddWorkExperience}
+          />
       
-        <Preview
-          data = {data}
-          currentlyEditing={currentlyEditing}
-          handleDeleteEducation={handleDeleteEducation}
-          handleEditEducation={handleEditEducation}
-          handleDeleteWork={handleDeleteWork}
-          handleEditWork={handleEditWork}
-          startEditing={startEditing}
-          stopEditing={stopEditing}
-        />
       
+          <Preview
+            data = {data}
+            currentlyEditing={currentlyEditing}
+            handleDeleteEducation={handleDeleteEducation}
+            handleEditEducation={handleEditEducation}
+            handleDeleteWork={handleDeleteWork}
+            handleEditWork={handleEditWork}
+            startEditing={startEditing}
+            stopEditing={stopEditing}
+          />
+      
+      </main>
+      <footer></footer>
     </div>
   )
 }

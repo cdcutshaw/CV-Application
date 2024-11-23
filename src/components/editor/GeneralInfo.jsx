@@ -12,8 +12,6 @@ function GeneralInfo({data, handleChange}) {
                     id="firstName"
                     onChange={handleChange}
                     value={data.firstName}
-                    placeholder="Jane"
-                    required
                 />
 
                 <label htmlFor="lastName">Last Name:</label>
@@ -23,8 +21,15 @@ function GeneralInfo({data, handleChange}) {
                     id="lastName"
                     onChange={handleChange}
                     value={data.lastName}
-                    placeholder="Doe"
-                    required
+                />
+
+                <label htmlFor="professionalTitle">Professional Title:</label>
+                <input 
+                    type="text"
+                    name="professionalTitle"
+                    id="professionalTitle"
+                    onChange={handleChange}
+                    value={data.professionalTitle}
                 />
 
                 <label htmlFor="email">Email:</label>
@@ -34,8 +39,6 @@ function GeneralInfo({data, handleChange}) {
                     id="email"
                     onChange={handleChange}
                     value={data.email}
-                    placeholder="janedoe@example.com"
-                    required
                 />
                 
                 <label htmlFor="phone">Phone Number:</label>
@@ -45,18 +48,26 @@ function GeneralInfo({data, handleChange}) {
                     id="phone"
                     onChange={handleChange}
                     value={data.phone}
-                    placeholder="555-555-5555"
-                    required
+                />
+
+                <label htmlFor="location">Location:</label>
+                <input 
+                    type="text"
+                    name="location"
+                    id="location"
+                    onChange={handleChange}
+                    value={data.location}
                 />
 
                 <label htmlFor="about">About Me:</label>
                 <textarea 
                     name="about" 
                     id="about" 
-                    cols="50" 
+                    cols="30" 
                     rows="10"
                     onChange={handleChange}
                     value={data.about}
+                    placeholder="brief summary about yourself"
                     required
                 ></textarea>
                 

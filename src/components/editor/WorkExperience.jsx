@@ -38,7 +38,6 @@ function WorkExperience({ handleAddWorkExperience }) {
           id="position"
           onChange={handleTempChange}
           value={tempWork.position}
-          placeholder="General Manager"
         />
 
         <label htmlFor="companyName">Company Name:</label>
@@ -52,7 +51,7 @@ function WorkExperience({ handleAddWorkExperience }) {
 
         <label htmlFor="workStartDate">Start Date:</label>
         <input
-          type="date"
+          type="month"
           name="workStartDate"
           id="workStartDate"
           onChange={handleTempChange}
@@ -61,7 +60,7 @@ function WorkExperience({ handleAddWorkExperience }) {
 
         <label htmlFor="workEndDate">End Date:</label>
         <input
-          type="date"
+          type="month"
           name="workEndDate"
           id="workEndDate"
           onChange={handleTempChange}

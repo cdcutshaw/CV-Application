@@ -1,8 +1,5 @@
-# React + Vite
+This project is part of The Odin Project's full stack Javascript curriculum link to The Odin Project page: https://www.theodinproject.com/lessons/node-path-react-new-cv-application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The goal of this project was to create an app that automatically generates a CV/resume based on form inputs using React and Vite.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Link to App: https://cv-application-by-cdcutshaw.netlify.app/
